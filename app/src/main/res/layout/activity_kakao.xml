@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+
+        android:id="@+id/btn_custom_login"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:background="@drawable/kakao_account_login_btn_medium_narrow" />
+
+    <Button
+
+        android:id="@+id/btn_custom_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오 로그아웃" />
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/com_kakao_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>
