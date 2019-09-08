@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class Login_dialog extends AppCompatActivity {
     private static final String HOST_NETWORK_PROTOCOL = "http://";
-    private static final String HOST_ADDRESS = "192.168.0.87:8080";
+    private static final String HOST_ADDRESS = "192.168.0.224:8080";
     private static final String HOST__APP_NAME = "/yeojeong";
 
     EditText edit_login_id;

@@ -32,5 +32,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.14.0'
     implementation group: 'com.kakao.sdk', name: 'kakaolink', version: '1.14.0'
-
+    implementation 'com.beardedhen:androidbootstrap:2.3.2'
 }

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class FragCityInfo extends Fragment {
 
     private static final String HOST_NETWORK_PROTOCOL = "http://";
-    private static final String HOST_ADDRESS = "192.168.0.87:8080";
+    private static final String HOST_ADDRESS = "192.168.0.224:8080";
     private static final String HOST_APP_NAME = "/yeojeong";
     ArrayList<City_Data> list = new ArrayList<>();
 
@@ -41,7 +41,10 @@ public class FragCityInfo extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("Frag City info onCreate 호출!!!");
+
     }
+
+
 
     @Nullable
     @Override
@@ -51,7 +54,7 @@ public class FragCityInfo extends Fragment {
     System.out.println("Frag City info onCreate View 호출!!!");
 
 
-        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_cityinfo, container, false);
+        final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_cityinfo, container, false);
 
 
 
@@ -82,17 +85,35 @@ public class FragCityInfo extends Fragment {
                 } catch(Exception e) {
                     e.printStackTrace();
                 }
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        RecyclerView recyclerView = layout.findViewById(R.id.rv_cityinfo);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+                        Cityinfo_adapter adapter = new Cityinfo_adapter(list);
+                        recyclerView.setAdapter(adapter);
+                    }
+                });
+
+
+
             }
         });
 
-        RecyclerView recyclerView = layout.findViewById(R.id.rv_cityinfo);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Cityinfo_adapter adapter = new Cityinfo_adapter(list);
-        recyclerView.setAdapter(adapter);
+
 
 
         return layout;
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        System.out.println("Frag City info onActivityCreated 호출!");
     }
 }
