@@ -2,7 +2,6 @@ package com.tje.yeojunglogin.tab;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,10 +10,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuBuilder;
+
 import android.widget.Toolbar;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -22,13 +20,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
-import com.tje.yeojunglogin.Cityinfo_adapter;
 import com.tje.yeojunglogin.R;
-import com.tje.yeojunglogin.fragment.FragCityInfo;
+import com.tje.yeojunglogin.city_info.FragCityInfo;
 import com.tje.yeojunglogin.fragment.FragLogin;
-
-
-import java.util.ArrayList;
+import com.tje.yeojunglogin.with_me.FragWithMe;
 
 public class TabApplication extends FragmentActivity {
 
@@ -84,6 +79,7 @@ public class TabApplication extends FragmentActivity {
         pagerAdapter pager = new pagerAdapter(getSupportFragmentManager());
         vp_tab.setAdapter(pager);
         vp_tab.setCurrentItem(0);
+
 
         btn_1.setOnClickListener(movePageListener);
         btn_1.setTag(0);
@@ -165,7 +161,7 @@ public class TabApplication extends FragmentActivity {
                 case 1:
                     return new FragLogin();
                 case 2:
-                    return new FragLogin();
+                    return new FragWithMe();
                 case 3:
                     return new FragLogin();
 

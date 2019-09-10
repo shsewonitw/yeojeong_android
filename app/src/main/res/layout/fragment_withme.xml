@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+    <com.beardedhen.androidbootstrap.BootstrapButtonGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BootstrapButtonGroup"
+        android:orientation="vertical"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:roundedCorners="true"
+        >
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/btn_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동행자 찾기"
+            />
+    </com.beardedhen.androidbootstrap.BootstrapButtonGroup>
+</LinearLayout>

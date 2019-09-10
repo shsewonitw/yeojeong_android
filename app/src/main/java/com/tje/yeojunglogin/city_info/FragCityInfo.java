@@ -1,4 +1,4 @@
-package com.tje.yeojunglogin.fragment;
+package com.tje.yeojunglogin.city_info;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.tje.yeojunglogin.Cityinfo_adapter;
-import com.tje.yeojunglogin.MainActivity;
+import com.tje.yeojunglogin.Preferences;
+import com.tje.yeojunglogin.city_info.Cityinfo_adapter;
 import com.tje.yeojunglogin.R;
 import com.tje.yeojunglogin.model.City_Data;
 
@@ -28,9 +28,9 @@ import java.util.ArrayList;
 
 public class FragCityInfo extends Fragment {
 
-    private static final String HOST_NETWORK_PROTOCOL = "http://";
-    private static final String HOST_ADDRESS = "192.168.0.224:8080";
-    private static final String HOST_APP_NAME = "/yeojeong";
+    private static final String HOST_NETWORK_PROTOCOL = Preferences.HOST_NETWORK_PROTOCOL;
+    private static final String HOST_ADDRESS = Preferences.HOST_ADDRESS;
+    private static final String HOST_APP_NAME = Preferences.HOST_APP_NAME;
     ArrayList<City_Data> list = new ArrayList<>();
 
     public FragCityInfo() {

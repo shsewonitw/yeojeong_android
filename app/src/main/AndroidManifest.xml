@@ -14,10 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".city_info.CityDetailActivity"
+            android:label="@string/title_activity_city_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,7 +32,6 @@
         <activity android:name=".KakaoActivity" />
         <activity android:name=".Regist_dialog" />
         <activity android:name=".tab.TabApplication" />
-
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
