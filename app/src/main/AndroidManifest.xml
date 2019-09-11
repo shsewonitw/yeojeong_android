@@ -3,6 +3,7 @@
     package="com.tje.yeojunglogin">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -17,7 +18,7 @@
         <activity
             android:name=".city_info.CityDetailActivity"
             android:label="@string/title_activity_city_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

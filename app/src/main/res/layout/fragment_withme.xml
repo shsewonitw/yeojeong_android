@@ -8,20 +8,21 @@
 
 
 
+
     <com.beardedhen.androidbootstrap.BootstrapButtonGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BootstrapButtonGroup"
         android:orientation="vertical"
+        android:text="BootstrapButtonGroup"
         app:bootstrapBrand="primary"
         app:bootstrapSize="lg"
-        app:roundedCorners="true"
-        >
+        app:roundedCorners="true">
+
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/btn_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="동행자 찾기"
-            />
+            android:text="동행자 찾기" />
     </com.beardedhen.androidbootstrap.BootstrapButtonGroup>
+
 </LinearLayout>

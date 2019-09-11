@@ -14,7 +14,7 @@ import android.view.View;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_TIME = 4000;
+    private final int SPLASH_DISPLAY_TIME = 2500;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

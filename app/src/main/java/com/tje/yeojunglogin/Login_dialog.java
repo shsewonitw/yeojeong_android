@@ -50,7 +50,7 @@ public class Login_dialog extends AppCompatActivity {
     private String pwd;
 
 
-    private SharedPreferences appData;
+    public static SharedPreferences appData;
 
     private void save() {
         // SharedPreferences 객체만으론 저장 불가능 Editor 사용
@@ -72,6 +72,7 @@ public class Login_dialog extends AppCompatActivity {
         saveLoginData = appData.getBoolean("SAVE_LOGIN_DATA", false);
         id = appData.getString("ID", "");
         pwd = appData.getString("PWD", "");
+
     }
 
 
@@ -161,7 +162,10 @@ public class Login_dialog extends AppCompatActivity {
                                 System.out.println(login_msg);
                                 System.out.println(login_result);
                                 if (login_result == true) {
+                                    System.out.println("ㅋㅎㅎㅋㅎㅋㅎ");
                                     save();
+                                } else {
+                                    System.out.println("login false");
                                 }
                                 in.close();
                             } else {
@@ -183,7 +187,6 @@ public class Login_dialog extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         });
 

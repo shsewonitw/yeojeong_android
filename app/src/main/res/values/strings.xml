@@ -4,5 +4,6 @@
     <string name="kakao_app_key">16638b0bdb292ffad42e7a5203b9ba8f</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_city_detail">CityDetailActivity</string>
+    <string name="title_activity_with_me_test">WIthMeTestActivity</string>
 
 </resources>

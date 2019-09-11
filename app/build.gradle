@@ -33,5 +33,6 @@ dependencies {
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.14.0'
     implementation group: 'com.kakao.sdk', name: 'kakaolink', version: '1.14.0'
     implementation 'com.beardedhen:androidbootstrap:2.3.2'
+    implementation 'com.sdsmdg.harjot:rotatingtext:1.0.2'
 
 }
