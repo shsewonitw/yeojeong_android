@@ -46,7 +46,7 @@ public class FragLogin extends Fragment  {
                 Intent intent = new Intent(getContext(), Regist_dialog.class);
                 startActivityForResult(intent, 1);
 
-//                setResult(MainActivity.LOGIN_REGIST, intent);
+//                setResult(FragReview.LOGIN_REGIST, intent);
 //                finish();
 
             }

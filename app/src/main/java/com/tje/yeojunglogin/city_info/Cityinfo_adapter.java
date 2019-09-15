@@ -44,8 +44,8 @@ public class Cityinfo_adapter extends RecyclerView.Adapter<Cityinfo_adapter.View
         ViewHolder(View itemView){
             super(itemView);
 
-            tv_cityinfo_country = itemView.findViewById(R.id.tv_cityinfo_country);
-            tv_cityinfo_city = itemView.findViewById(R.id.tv_cityinfo_city);
+            tv_cityinfo_country = itemView.findViewById(R.id.tv_withme_name);
+            tv_cityinfo_city = itemView.findViewById(R.id.tv_withme_city);
             iv_cityinfo_img = itemView.findViewById(R.id.iv_cityinfo_img);
             cityinfo_item = itemView.findViewById(R.id.cityinfo_item);
         }
@@ -73,6 +73,7 @@ public class Cityinfo_adapter extends RecyclerView.Adapter<Cityinfo_adapter.View
         final City_Data city_data = mData.get(position);
         holder.tv_cityinfo_country.setText(city_data.getCountry());
         holder.tv_cityinfo_city.setText(city_data.getCity());
+
         final ViewHolder tmpHolder = holder;
 
 
@@ -99,6 +100,7 @@ public class Cityinfo_adapter extends RecyclerView.Adapter<Cityinfo_adapter.View
                         @Override
                         public void run() {
                             tmpHolder.iv_cityinfo_img.setImageBitmap(bm);
+
                         }
                     });
 

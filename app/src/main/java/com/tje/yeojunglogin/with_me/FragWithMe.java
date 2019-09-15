@@ -64,6 +64,7 @@ public class FragWithMe extends Fragment {
     ArrayList<Withme_view> list = new ArrayList<>();
 
     private BootstrapButton btnFind;
+    private RecyclerView rv_withme;
 
     final LocationListener gpsLocationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
@@ -119,11 +120,12 @@ public class FragWithMe extends Fragment {
 
 
         btnFind = layout.findViewById(R.id.btn_find);
+        rv_withme = layout.findViewById(R.id.rv_withme);
         btnFind.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 //                btnFind.setVisibility(View.GONE);
-                String currentCity;
+                String currentCity = null;
 
                 List<Address> addressList = null;
 
@@ -141,7 +143,6 @@ public class FragWithMe extends Fragment {
 
                     try {
                         addressList=geocoder.getFromLocation(latitude, longitude, 1);
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -150,8 +151,9 @@ public class FragWithMe extends Fragment {
                         if (addressList.size()==0) {
                             Toast.makeText(getContext(), "현재 위치를 알 수 없습니다", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getContext(), addressList.get(0).getCountryName()+", "+addressList.get(0).getAdminArea() , Toast.LENGTH_LONG).show();
-                            currentCity = addressList.get(0).getAdminArea();
+                            currentCity = addressList.get(0).getLocality() == null ? addressList.get(0).getAdminArea() : addressList.get(0).getLocality();
+
+                            Toast.makeText(getContext(), currentCity , Toast.LENGTH_LONG).show();
                             System.out.println(" 로그인 아이디 : "+appData.getString("ID",""));
                         }
                     }
@@ -166,27 +168,18 @@ public class FragWithMe extends Fragment {
                             gpsLocationListener);
 
 
+                    final String finalCurrentCity = currentCity;
                     AsyncTask.execute(new Runnable() {
                         @Override
                         public void run() {
+                            String member_id = appData.getString("ID","");
                             String targetURL = "/android_withme_article";
+                            String param = String.format("?member_id=%s",member_id);
 
                             try {
-                                URL endPoint = new URL(HOST_NETWORK_PROTOCOL + HOST_ADDRESS + HOST_APP_NAME + targetURL);
+                                URL endPoint = new URL(HOST_NETWORK_PROTOCOL + HOST_ADDRESS + HOST_APP_NAME + targetURL + param);
                                 HttpURLConnection connection = (HttpURLConnection)endPoint.openConnection();
                                 connection.setRequestMethod("GET");
-
-                                String member_id = appData.getString("ID","");
-
-                                String param = String.format("member_id=%s",member_id);
-
-
-
-                                if(param != null){
-                                    connection.getOutputStream().write(param.getBytes());
-                                } else {
-                                    System.out.println("param == null");
-                                }
 
                                 if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
                                     BufferedReader in = new BufferedReader(
@@ -196,8 +189,39 @@ public class FragWithMe extends Fragment {
                                     Gson gson = new Gson();
 
                                     ArrayList<Withme_view> withme_viewList = gson.fromJson(in, new TypeToken<ArrayList<Withme_view>>(){}.getType());
+                                    ArrayList<Withme_view> targetPersonList = new ArrayList<>();
                                     list = withme_viewList;
 
+                                    for(Withme_view withme_view : list){
+                                        try {
+                                            List<Address> tempList = geocoder.getFromLocationName(withme_view.getCity(),1);
+                                            String searchedCity = tempList.get(0).getAdminArea() == null ? tempList.get(0).getLocality() : tempList.get(0).getAdminArea();
+
+
+                                            if(searchedCity.equals(finalCurrentCity)) {
+                                                // 현재 모바일 기기가 위치한 도시와 같은 곳을 여행중인 동행요청한 유저
+                                                targetPersonList.add(withme_view);
+                                            }
+
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    list = targetPersonList;
+
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            btnFind.setVisibility(View.GONE);
+                                            rv_withme.setVisibility(View.VISIBLE);
+                                            RecyclerView recyclerView = layout.findViewById(R.id.rv_withme);
+                                            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+                                            Withme_adapter adapter = new Withme_adapter(list);
+                                            recyclerView.setAdapter(adapter);
+                                        }
+                                    });
 
 
                                 }
@@ -206,8 +230,6 @@ public class FragWithMe extends Fragment {
                             } catch(Exception e) {
                                 e.printStackTrace();
                             }
-
-
 
 
                         }

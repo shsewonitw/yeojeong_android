@@ -1,5 +1,6 @@
 package com.tje.yeojunglogin.tab;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,9 +21,12 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.tje.yeojunglogin.Login_dialog;
 import com.tje.yeojunglogin.R;
+import com.tje.yeojunglogin.chatting.FragChatting;
 import com.tje.yeojunglogin.city_info.FragCityInfo;
 import com.tje.yeojunglogin.fragment.FragLogin;
+import com.tje.yeojunglogin.review.FragReview;
 import com.tje.yeojunglogin.with_me.FragWithMe;
 
 public class TabApplication extends FragmentActivity {
@@ -39,8 +43,8 @@ public class TabApplication extends FragmentActivity {
     Drawable handshake2;
     Drawable review1;
     Drawable review2;
-    Drawable suitcase1;
-    Drawable suitcase2;
+    Drawable message1;
+    Drawable message2;
     private Toolbar toolbar;
 
 
@@ -51,13 +55,13 @@ public class TabApplication extends FragmentActivity {
         setContentView(R.layout.activity_tab);
 
         planetearth1 = getResources().getDrawable(R.drawable.planetearth1);
-        planetearth2 = getResources().getDrawable(R.drawable.planetearth3);
+        planetearth2 = getResources().getDrawable(R.drawable.planetearth2);
         handshake1 = getResources().getDrawable(R.drawable.handshake1);
-        handshake2 = getResources().getDrawable(R.drawable.handshake3);
+        handshake2 = getResources().getDrawable(R.drawable.handshake2);
         review1 = getResources().getDrawable(R.drawable.review1);
-        review2 = getResources().getDrawable(R.drawable.review3);
-        suitcase1 = getResources().getDrawable(R.drawable.suitcase1);
-        suitcase2 = getResources().getDrawable(R.drawable.suitcase3);
+        review2 = getResources().getDrawable(R.drawable.review2);
+        message1 = getResources().getDrawable(R.drawable.message1);
+        message2 = getResources().getDrawable(R.drawable.message2);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("여행자들의 정보");
@@ -108,8 +112,12 @@ public class TabApplication extends FragmentActivity {
             case R.id.home:
                 Toast.makeText(this, "햄버거!", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.item1:
-                Toast.makeText(this, "123", Toast.LENGTH_SHORT).show();
+            case R.id.logout:
+
+                Intent logoutIntent = new Intent(this, Login_dialog.class);
+                startActivity(logoutIntent);
+                finish();
+
                 return true;
             case R.id.item2:
                 Toast.makeText(this, "22222", Toast.LENGTH_SHORT).show();
@@ -126,17 +134,17 @@ public class TabApplication extends FragmentActivity {
             int tag = (int) v.getTag();
             vp_tab.setCurrentItem(tag);
 
-            btn_1.setForeground(planetearth1);
-            btn_2.setForeground(suitcase1);
-            btn_3.setForeground(handshake1);
+            btn_1.setForeground(handshake1);
+            btn_2.setForeground(planetearth1);
+            btn_3.setForeground(message1);
             btn_4.setForeground(review1);
 
             if(tag == 0) {
-                btn_1.setForeground(planetearth2);
+                btn_1.setForeground(handshake2);
             } else if(tag == 1) {
-                btn_2.setForeground(suitcase2);
+                btn_2.setForeground(planetearth2);
             } else if(tag == 2) {
-                btn_3.setForeground(handshake2);
+                btn_3.setForeground(message2);
             } else if(tag == 3) {
                 btn_4.setForeground(review2);
             }
@@ -157,13 +165,13 @@ public class TabApplication extends FragmentActivity {
             switch(position)
             {
                 case 0:
-                    return new FragCityInfo();
-                case 1:
-                    return new FragLogin();
-                case 2:
                     return new FragWithMe();
+                case 1:
+                    return new FragCityInfo();
+                case 2:
+                    return new FragChatting();
                 case 3:
-                    return new FragLogin();
+                    return new FragReview();
 
 
                 default:

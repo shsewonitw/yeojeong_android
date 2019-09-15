@@ -4,37 +4,47 @@
     android:id="@+id/cityinfo_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="40dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:layout_marginBottom="20dp"
+    android:background="#1A03A9F4"
     android:baselineAligned="true"
     android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_cityinfo_country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textSize="24sp" />
+        <ImageView
+            android:id="@+id/iv_cityinfo_img"
+            android:layout_width="161dp"
+            android:layout_height="75dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
 
-        <TextView
-            android:id="@+id/tv_cityinfo_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:text="TextView" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_withme_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_withme_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/iv_cityinfo_img"
-        android:layout_width="71dp"
-        android:layout_height="75dp"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
 
 </LinearLayout>

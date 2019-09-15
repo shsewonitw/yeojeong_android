@@ -136,6 +136,7 @@ public class Login_dialog extends AppCompatActivity {
 
 
                             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                                System.out.println("여기들어옴!");
                                 Map<String, List<String>> headerFields = connection.getHeaderFields();
                                 String COOKIES_HEADER = "Set-Cookie";
                                 List<String> cookiesHeader = headerFields.get(COOKIES_HEADER);
@@ -146,6 +147,7 @@ public class Login_dialog extends AppCompatActivity {
                                         String cookieValue = HttpCookie.parse(cookie).get(0).getValue();
 
                                         cookieString = cookieName + "=" + cookieValue;
+                                        System.out.println("ㅠㅠ : "+ cookieString);
                                         CookieManager.getInstance().setCookie(HOST_NETWORK_PROTOCOL + HOST_ADDRESS + HOST__APP_NAME, cookieString);
                                     }
                                 }
@@ -163,6 +165,9 @@ public class Login_dialog extends AppCompatActivity {
                                 System.out.println(login_result);
                                 if (login_result == true) {
                                     System.out.println("ㅋㅎㅎㅋㅎㅋㅎ");
+                                    Intent intent = new Intent(Login_dialog.this, TabApplication.class);
+                                    startActivity(intent);
+                                    finish();
                                     save();
                                 } else {
                                     System.out.println("login false");
@@ -178,9 +183,7 @@ public class Login_dialog extends AppCompatActivity {
 
                             }
 
-                            Intent intent = new Intent(Login_dialog.this, TabApplication.class);
-                            startActivity(intent);
-                            finish();
+
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -197,7 +200,7 @@ public class Login_dialog extends AppCompatActivity {
                 Intent intent = new Intent(Login_dialog.this, Regist_dialog.class);
                 startActivity(intent);
                 finish();
-//                setResult(MainActivity.LOGIN_REGIST, intent);
+//                setResult(FragReview.LOGIN_REGIST, intent);
 //                finish();
 
             }

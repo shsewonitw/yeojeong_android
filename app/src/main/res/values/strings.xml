@@ -5,5 +5,7 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_city_detail">CityDetailActivity</string>
     <string name="title_activity_with_me_test">WIthMeTestActivity</string>
+    <string name="title_activity_chrring">ChrringActivity</string>
+    <string name="title_activity_chatting">ChattingActivity</string>
 
 </resources>

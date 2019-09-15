@@ -16,6 +16,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".chatting.ChattingActivity"
+            android:label="@string/title_activity_chatting"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".city_info.CityDetailActivity"
             android:label="@string/title_activity_city_detail"
             android:theme="@style/AppTheme.NoActionBar" />

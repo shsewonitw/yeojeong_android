@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "608799222278",
+    "firebase_url": "https://yeojeong-79cdf.firebaseio.com",
+    "project_id": "yeojeong-79cdf",
+    "storage_bucket": "yeojeong-79cdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608799222278:android:9982d4c09fe7a85f83f187",
+        "android_client_info": {
+          "package_name": "com.tje.yeojunglogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608799222278-hob00ddsaa7ioh69607rlpo62ktn9vbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApUrL6AguNWJh_XXBAi530AkwUsTWBuRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608799222278-hob00ddsaa7ioh69607rlpo62ktn9vbp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
