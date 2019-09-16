@@ -199,7 +199,7 @@ public class Login_dialog extends AppCompatActivity {
                 System.out.println("가입버튼 클릭!!!");
                 Intent intent = new Intent(Login_dialog.this, Regist_dialog.class);
                 startActivity(intent);
-                finish();
+
 //                setResult(FragReview.LOGIN_REGIST, intent);
 //                finish();
 

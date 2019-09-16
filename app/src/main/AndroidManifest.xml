@@ -24,6 +24,11 @@
             android:label="@string/title_activity_city_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".review.DetailReviewActivity"
+            android:label="DetailReviewActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>

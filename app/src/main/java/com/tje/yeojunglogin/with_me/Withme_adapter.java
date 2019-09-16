@@ -31,12 +31,20 @@ public class Withme_adapter extends RecyclerView.Adapter<Withme_adapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_withme_city;
         TextView tv_withme_name;
+        TextView tv_withme_country;
+        TextView tv_withme_age;
+        TextView tv_withme_gender;
+        TextView tv_withme_style;
         LinearLayout withme_item;
         ViewHolder(View itemView){
             super(itemView);
 
             tv_withme_city = itemView.findViewById(R.id.tv_withme_city);
             tv_withme_name = itemView.findViewById(R.id.tv_withme_name);
+            tv_withme_country = itemView.findViewById(R.id.tv_withme_country);
+            tv_withme_age = itemView.findViewById(R.id.tv_withme_age);
+            tv_withme_gender = itemView.findViewById(R.id.tv_withme_gender);
+            tv_withme_style = itemView.findViewById(R.id.tv_withme_style);
             withme_item = itemView.findViewById(R.id.withme_item);
         }
     }
@@ -63,6 +71,45 @@ public class Withme_adapter extends RecyclerView.Adapter<Withme_adapter.ViewHold
         final Withme_view withme_view = mData.get(position);
         holder.tv_withme_name.setText(withme_view.getMember_id());
         holder.tv_withme_city.setText(withme_view.getCity());
+        holder.tv_withme_country.setText(withme_view.getCountry());
+
+        if( withme_view.getCategory_gender() == 1 ) {
+            holder.tv_withme_gender.setText("여자");
+        } else if ( withme_view.getCategory_gender() == 2 ) {
+            holder.tv_withme_gender.setText("남자");
+        } else {
+            holder.tv_withme_gender.setText("무관");
+        }
+
+        if( withme_view.getCategory_age() == 1 ) {
+            holder.tv_withme_age.setText("20대");
+        } else if ( withme_view.getCategory_age() == 2 ) {
+            holder.tv_withme_age.setText("30대");
+        } else if ( withme_view.getCategory_age() == 3 ) {
+            holder.tv_withme_age.setText("40대");
+        } else {
+            holder.tv_withme_age.setText("무관");
+        }
+
+        if( withme_view.getCategory_style() == 1 ) {
+            holder.tv_withme_style.setText("관광");
+        } else if ( withme_view.getCategory_style() == 2 ) {
+            holder.tv_withme_style.setText("맛집");
+        } else if ( withme_view.getCategory_style() == 3 ) {
+            holder.tv_withme_style.setText("쇼핑");
+        } else if ( withme_view.getCategory_style() == 4 ) {
+            holder.tv_withme_style.setText("휴양");
+        } else if ( withme_view.getCategory_style() == 5 ) {
+            holder.tv_withme_style.setText("액티비티");
+        } else {
+            holder.tv_withme_style.setText("무관");
+        }
+
+//        tv_withme_country = itemView.findViewById(R.id.tv_withme_country);
+//        tv_withme_age = itemView.findViewById(R.id.tv_withme_age);
+//        tv_withme_gender = itemView.findViewById(R.id.tv_withme_gender);
+//        tv_withme_style = itemView.findViewById(R.id.tv_withme_style);
+
         final ViewHolder tmpHolder = holder;
 
 

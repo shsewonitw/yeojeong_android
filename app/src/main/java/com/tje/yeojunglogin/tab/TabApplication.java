@@ -27,6 +27,7 @@ import com.tje.yeojunglogin.chatting.FragChatting;
 import com.tje.yeojunglogin.city_info.FragCityInfo;
 import com.tje.yeojunglogin.fragment.FragLogin;
 import com.tje.yeojunglogin.review.FragReview;
+import com.tje.yeojunglogin.review.ReviewList;
 import com.tje.yeojunglogin.with_me.FragWithMe;
 
 public class TabApplication extends FragmentActivity {
@@ -171,7 +172,7 @@ public class TabApplication extends FragmentActivity {
                 case 2:
                     return new FragChatting();
                 case 3:
-                    return new FragReview();
+                    return new ReviewList();
 
 
                 default:

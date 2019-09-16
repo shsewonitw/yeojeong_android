@@ -92,7 +92,7 @@ public class ReviewListRecyclerViewAdapter extends RecyclerView.Adapter<ReviewLi
 
          holder.text_count.setText(String.valueOf(review_view.getComment_count()));
 
-        holder.tv_articleId.setText(review_view.getArticle_id());
+//        holder.tv_articleId.setText(review_view.getArticle_id());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
